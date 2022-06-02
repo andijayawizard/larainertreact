@@ -30,45 +30,45 @@ const Index = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {data.map(({ id, title, description }) => (
-                                <tr key={id} className="">
-                                    <td className="border-t">
-                                        <InertiaLink
-                                            href={route("posts.edit", id)}
-                                            className="flex items-center px-6 py-4 focus:text-indigo-700 focus:outline-none"
-                                        >
-                                            {id}
-                                        </InertiaLink>
-                                    </td>
-                                    <td className="border-t">
-                                        <InertiaLink
-                                            href={route("posts.edit", id)}
-                                            className="flex items-center px-6 py-4 focus:text-indigo-700 focus:outline-none"
-                                        >
-                                            {title}
-                                        </InertiaLink>
-                                    </td>
-                                    <td className="border-t">
-                                        <InertiaLink
-                                            tabIndex="1"
-                                            className="flex items-center px-6 py-4"
-                                            href={route("posts.edit", id)}
-                                        >
-                                            {description}
-                                        </InertiaLink>
-                                    </td>
-                                    <td className="border-t">
-                                        <InertiaLink
-                                            tabIndex="1"
-                                            className="px-4 py-2 text-sm text-white bg-blue-500 rounded"
-                                            href={route("posts.edit", id)}
-                                        >
-                                            Edit
-                                        </InertiaLink>
-                                    </td>
-                                </tr>
-                            ))}
-                            {data.length === 0 && (
+                            {/* {data.map(({ id, title, description }) => ( */}
+                            {/* <tr key={id} className="">
+                                <td className="border-t">
+                                    <InertiaLink
+                                        href={route("posts.edit", id)}
+                                        className="flex items-center px-6 py-4 focus:text-indigo-700 focus:outline-none"
+                                    >
+                                        {id}
+                                    </InertiaLink>
+                                </td>
+                                <td className="border-t">
+                                    <InertiaLink
+                                        href={route("posts.edit", id)}
+                                        className="flex items-center px-6 py-4 focus:text-indigo-700 focus:outline-none"
+                                    >
+                                        {title}
+                                    </InertiaLink>
+                                </td>
+                                <td className="border-t">
+                                    <InertiaLink
+                                        tabIndex="1"
+                                        className="flex items-center px-6 py-4"
+                                        href={route("posts.edit", id)}
+                                    >
+                                        {description}
+                                    </InertiaLink>
+                                </td>
+                                <td className="border-t">
+                                    <InertiaLink
+                                        tabIndex="1"
+                                        className="px-4 py-2 text-sm text-white bg-blue-500 rounded"
+                                        href={route("posts.edit", id)}
+                                    >
+                                        Edit
+                                    </InertiaLink>
+                                </td>
+                            </tr> */}
+                            {/* ))} */}
+                            {/* {data.length === 0 && (
                                 <tr>
                                     <td
                                         className="px-6 py-4 border-t"
@@ -77,7 +77,7 @@ const Index = () => {
                                         No contacts found.
                                     </td>
                                 </tr>
-                            )}
+                            )} */}
                         </tbody>
                     </table>
                 </div>
