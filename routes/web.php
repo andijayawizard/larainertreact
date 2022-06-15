@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -30,5 +32,6 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::resource('posts', PostController::class)->middleware(['auth', 'verified']);
-// Route::resource('products', ProductController::class)->middleware(['auth', 'verified']);
+Route::resource('categories', CategoryController::class);
+Route::resource('products', ProductController::class)->middleware(['auth', 'verified']);
 require __DIR__ . '/auth.php';
