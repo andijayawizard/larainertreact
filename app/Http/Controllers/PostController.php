@@ -18,6 +18,7 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::latest()->get();
+        // $posts = Post::orderBy('id', 'desc')->paginate(5);
         return Inertia::render('Post/Index', ['posts' => $posts]);
     }
 
@@ -54,7 +55,16 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        return Inertia::render('Post/Show', [
+            'post' => [
+                'id' => $post->id,
+                'title' => $post->title,
+                'description' => $post->description,
+            ]
+        ]);
+        // return Redirect::route('posts.show')
+        //     ->with('post', $post)
+        //     ->with('text', 'detail');
     }
 
     /**
@@ -83,7 +93,11 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        $post->update($request->validated());
+        $request->validate([
+            'title' => 'required|min:4',
+            'description' => 'required|min:4',
+        ]);
+        $post->update($request->all());
         return Redirect::route('posts.index');
     }
 
