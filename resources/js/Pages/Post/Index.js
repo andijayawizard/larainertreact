@@ -14,22 +14,24 @@ const Index = (props) => {
             auth={props.auth}
             errors={props.errors}
             header={
-                <h2 className="font-semibold text-xl text-gray-800 leading-tight">
-                    Posts
-                </h2>
+                <>
+                    <div className="flex items-center justify-between mb-0">
+                        <h2 className="font-semibold text-xl text-gray-800 leading-tight">
+                            Posts
+                        </h2>
+                        <InertiaLink
+                            className="px-6 py-2 text-white bg-green-500 rounded-md focus:outline-none"
+                            href={route("posts.create")}
+                        >
+                            Create Post
+                        </InertiaLink>
+                    </div>
+                </>
             }
         >
             <Head title="Posts" />
             <div className="container mx-auto">
                 {/* <h1 className="mb-8 text-3xl font-bold text-center">Post</h1> */}
-                <div className="flex items-center justify-between mb-6">
-                    <InertiaLink
-                        className="px-6 py-2 text-white bg-green-500 rounded-md focus:outline-none"
-                        href={route("posts.create")}
-                    >
-                        Create Post
-                    </InertiaLink>
-                </div>
 
                 <div className="overflow-x-auto bg-white rounded shadow">
                     <table className="w-full whitespace-nowrap">

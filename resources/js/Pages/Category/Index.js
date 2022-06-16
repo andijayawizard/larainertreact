@@ -10,22 +10,22 @@ function Index(props) {
             auth={props.auth}
             errors={props.errors}
             header={
-                <h2 className="font-semibold text-xl text-gray-800 leading-tight">
-                    Categories
-                </h2>
+                <div className="flex items-center justify-between mb-0">
+                    <h2 className="font-semibold text-xl text-gray-800 leading-tight">
+                        Categories
+                    </h2>
+                    <InertiaLink
+                        className="px-6 py-2 text-white bg-green-500 rounded-md focus:outline-none"
+                        href={route("categories.create")}
+                    >
+                        Create Category
+                    </InertiaLink>
+                </div>
             }
         >
             <Head title="Categories" />
             <div className="container mx-auto">
                 {/* <h1 className="mb-8 text-3xl font-bold text-center">Post</h1> */}
-                <div className="flex items-center justify-between mb-6">
-                    <InertiaLink
-                        className="px-6 py-2 text-white bg-green-500 rounded-md focus:outline-none"
-                        href={route("posts.create")}
-                    >
-                        Create Category
-                    </InertiaLink>
-                </div>
 
                 <div className="overflow-x-auto bg-white rounded shadow">
                     <table className="w-full whitespace-nowrap">
@@ -76,7 +76,7 @@ function Index(props) {
                                         <InertiaLink
                                             tabIndex="1"
                                             className="px-4 py-2 mx-2 text-sm text-white bg-blue-500 rounded"
-                                            href={route("posts.edit", id)}
+                                            href={route("categories.edit", id)}
                                         >
                                             Edit
                                         </InertiaLink>
