@@ -36,13 +36,13 @@ export default function Authenticated({ auth, header, children }) {
                                 </NavLink>
                                 <NavLink
                                     href={route("categories.index")}
-                                    active={route().current("categories")}
+                                    active={route().current("categories.index")}
                                 >
                                     Categories
                                 </NavLink>
                                 <NavLink
                                     href={route("products.index")}
-                                    active={route().current("products")}
+                                    active={route().current("products.index")}
                                 >
                                     Products
                                 </NavLink>
