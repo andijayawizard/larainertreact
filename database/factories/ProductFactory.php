@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -20,7 +21,7 @@ class ProductFactory extends Factory
             'name' => $this->faker->name,
             'description' => $this->faker->text,
             'pub' => 'yes',
-            // 'category_id' => $this->faker->randomNumber(1),
+            'category_id' => Category::factory(),
         ];
     }
 }
