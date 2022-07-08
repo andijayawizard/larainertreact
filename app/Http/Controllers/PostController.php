@@ -10,6 +10,7 @@ use Inertia\Inertia;
 
 class PostController extends Controller
 {
+    protected $title = 'Post';
     /**
      * Display a listing of the resource.
      *
@@ -19,7 +20,8 @@ class PostController extends Controller
     {
         $posts = Post::latest()->get();
         // $posts = Post::orderBy('id', 'desc')->paginate(5);
-        return Inertia::render('Post/Index', ['posts' => $posts]);
+        return Inertia::render('Post/Index', ['posts' => $posts])
+            ->with('title', $this->title);
     }
 
     /**
@@ -61,7 +63,8 @@ class PostController extends Controller
                 'title' => $post->title,
                 'description' => $post->description,
             ]
-        ]);
+        ])
+            ->with('title', $this->title);
         // return Redirect::route('posts.show')
         //     ->with('post', $post)
         //     ->with('text', 'detail');

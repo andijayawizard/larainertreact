@@ -9,6 +9,7 @@ use Inertia\Inertia;
 
 class MenuWebsiteController extends Controller
 {
+    protected $title = 'Menu Website';
     /**
      * Display a listing of the resource.
      *
@@ -16,10 +17,9 @@ class MenuWebsiteController extends Controller
      */
     public function index()
     {
-        $title = 'Menu Website';
-        $menuWebsite = MenuWebsite::latest()->get();
+        $menuWebsite = MenuWebsite::all();
         return Inertia::render('Menuweb/Index', ['menuweb' => $menuWebsite])
-            ->with('title', $title);
+            ->with('title', $this->title);
     }
 
     /**
@@ -51,7 +51,14 @@ class MenuWebsiteController extends Controller
      */
     public function show(MenuWebsite $menuWebsite)
     {
-        //
+        return Inertia::render('Menuweb/Show', [
+            'menuweb' => [
+                'id' => $menuWebsite->id,
+                'name' => $menuWebsite->name,
+                'description' => $menuWebsite->description,
+            ]
+        ])
+            ->with('title', $this->title);
     }
 
     /**

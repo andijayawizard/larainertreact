@@ -6248,6 +6248,9 @@ var Index = function Index(props) {
                 children: "Description"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("th", {
                 className: "px-6 pt-5 pb-4",
+                children: "Published"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("th", {
+                className: "px-6 pt-5 pb-4",
                 children: "Action"
               })]
             })
@@ -6255,7 +6258,8 @@ var Index = function Index(props) {
             children: [data.map(function (_ref) {
               var id = _ref.id,
                   name = _ref.name,
-                  description = _ref.description;
+                  description = _ref.description,
+                  isPub = _ref.isPub;
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("tr", {
                 className: "",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("td", {
@@ -6280,6 +6284,9 @@ var Index = function Index(props) {
                     href: route("menuweb.edit", id),
                     children: description
                   })
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("td", {
+                  className: "border-t",
+                  children: isPub == 1 ? "published" : "not published"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("td", {
                   className: "border-t",
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.InertiaLink, {
@@ -6296,10 +6303,10 @@ var Index = function Index(props) {
                 })]
               }, id);
             }), data.length === 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("tr", {
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("td", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("td", {
                 className: "px-6 py-4 border-t",
                 colSpan: "4",
-                children: "No contacts found."
+                children: ["No ", title, " found."]
               })
             })]
           })]
@@ -6310,6 +6317,85 @@ var Index = function Index(props) {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Index);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Menuweb/Show.js":
+/*!********************************************!*\
+  !*** ./resources/js/Pages/Menuweb/Show.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Layouts_Authenticated__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/Authenticated */ "./resources/js/Layouts/Authenticated.js");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+var Show = function Show(props) {
+  var _usePage$props = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.usePage)().props,
+      menuweb = _usePage$props.menuweb,
+      title = _usePage$props.title;
+  var data = {
+    name: menuweb.name,
+    description: menuweb.description
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_Layouts_Authenticated__WEBPACK_IMPORTED_MODULE_0__["default"], {
+    auth: props.auth,
+    errors: props.errors,
+    header: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("h2", {
+      className: "font-semibold text-xl text-gray-800 leading-tight",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.InertiaLink, {
+        href: route("menuweb.index"),
+        className: "text-indigo-600 hover:text-indigo-700",
+        children: title
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+        className: "font-medium text-indigo-600",
+        children: " / "
+      }), "Edit"]
+    }),
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Head, {
+      title: data.name
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "mt-4",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        className: "container flex flex-col justify-center mx-auto",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: "max-w-3xl p-8 bg-white rounded shadow",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("table", {
+            className: "w-full ",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("tbody", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("tr", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
+                  children: "Name"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
+                  children: data.name
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("tr", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
+                  children: "Description"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
+                  children: data.description
+                })]
+              })]
+            })
+          })
+        })
+      })
+    })]
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Show);
 
 /***/ }),
 
@@ -6599,7 +6685,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Index = function Index(props) {
-  var posts = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.usePage)().props.posts;
+  var _usePage$props = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.usePage)().props,
+      posts = _usePage$props.posts,
+      title = _usePage$props.title;
   var data = posts;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_Layouts_Authenticated__WEBPACK_IMPORTED_MODULE_3__["default"], {
     auth: props.auth,
@@ -6609,16 +6697,16 @@ var Index = function Index(props) {
         className: "flex items-center justify-between mb-0",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h2", {
           className: "font-semibold text-xl text-gray-800 leading-tight",
-          children: "Posts"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.InertiaLink, {
+          children: title
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.InertiaLink, {
           className: "px-6 py-2 text-white bg-green-500 rounded-md focus:outline-none",
           href: route("posts.create"),
-          children: "Create Post"
+          children: ["Create ", title]
         })]
       })
     }),
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Head, {
-      title: "Posts"
+      title: title
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
       className: "container mx-auto",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
@@ -6716,7 +6804,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Show = function Show(props) {
-  var post = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.usePage)().props.post;
+  var _usePage$props = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.usePage)().props,
+      post = _usePage$props.post,
+      title = _usePage$props.title;
   var data = {
     title: post.title,
     description: post.description
@@ -6729,14 +6819,14 @@ var Show = function Show(props) {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.InertiaLink, {
         href: route("posts.index"),
         className: "text-indigo-600 hover:text-indigo-700",
-        children: "Posts"
+        children: title
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
         className: "font-medium text-indigo-600",
         children: " / "
       }), "Edit"]
     }),
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Head, {
-      title: "Detail Post"
+      title: "Detail " + title + " | " + data.title
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
       className: "mt-4",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
@@ -60674,6 +60764,8 @@ var map = {
 	"./Dashboard.js": "./resources/js/Pages/Dashboard.js",
 	"./Menuweb/Index": "./resources/js/Pages/Menuweb/Index.js",
 	"./Menuweb/Index.js": "./resources/js/Pages/Menuweb/Index.js",
+	"./Menuweb/Show": "./resources/js/Pages/Menuweb/Show.js",
+	"./Menuweb/Show.js": "./resources/js/Pages/Menuweb/Show.js",
 	"./Post/Create": "./resources/js/Pages/Post/Create.js",
 	"./Post/Create.js": "./resources/js/Pages/Post/Create.js",
 	"./Post/Edit": "./resources/js/Pages/Post/Edit.js",
@@ -60762,13 +60854,13 @@ function h(e=""){return e.split(" ").filter(n=>n.trim().length>1)}let N=(0,react
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Reason": () => (/* binding */ g),
+/* harmony export */   "Reason": () => (/* binding */ T),
 /* harmony export */   "transition": () => (/* binding */ C)
 /* harmony export */ });
 /* harmony import */ var _utils_once_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../utils/once.js */ "./node_modules/@headlessui/react/dist/utils/once.js");
 /* harmony import */ var _utils_disposables_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../utils/disposables.js */ "./node_modules/@headlessui/react/dist/utils/disposables.js");
 /* harmony import */ var _utils_match_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../utils/match.js */ "./node_modules/@headlessui/react/dist/utils/match.js");
-function p(t,...e){t&&e.length>0&&t.classList.add(...e)}function v(t,...e){t&&e.length>0&&t.classList.remove(...e)}var g=(n=>(n.Ended="ended",n.Cancelled="cancelled",n))(g||{});function T(t,e){let n=(0,_utils_disposables_js__WEBPACK_IMPORTED_MODULE_0__.disposables)();if(!t)return n.dispose;let{transitionDuration:l,transitionDelay:a}=getComputedStyle(t),[d,s]=[l,a].map(i=>{let[r=0]=i.split(",").filter(Boolean).map(o=>o.includes("ms")?parseFloat(o):parseFloat(o)*1e3).sort((o,E)=>E-o);return r});if(d+s!==0){let i=[];i.push(n.addEventListener(t,"transitionrun",()=>{i.splice(0).forEach(r=>r()),i.push(n.addEventListener(t,"transitionend",()=>{e("ended"),i.splice(0).forEach(r=>r())},{once:!0}),n.addEventListener(t,"transitioncancel",()=>{e("cancelled"),i.splice(0).forEach(r=>r())},{once:!0}))},{once:!0}))}else e("ended");return n.add(()=>e("cancelled")),n.dispose}function C(t,e,n,l){let a=n?"enter":"leave",d=(0,_utils_disposables_js__WEBPACK_IMPORTED_MODULE_0__.disposables)(),s=l!==void 0?(0,_utils_once_js__WEBPACK_IMPORTED_MODULE_1__.once)(l):()=>{},m=(0,_utils_match_js__WEBPACK_IMPORTED_MODULE_2__.match)(a,{enter:()=>e.enter,leave:()=>e.leave}),i=(0,_utils_match_js__WEBPACK_IMPORTED_MODULE_2__.match)(a,{enter:()=>e.enterTo,leave:()=>e.leaveTo}),r=(0,_utils_match_js__WEBPACK_IMPORTED_MODULE_2__.match)(a,{enter:()=>e.enterFrom,leave:()=>e.leaveFrom});return v(t,...e.enter,...e.enterTo,...e.enterFrom,...e.leave,...e.leaveFrom,...e.leaveTo,...e.entered),p(t,...m,...r),d.nextFrame(()=>{v(t,...r),p(t,...i),T(t,o=>(o==="ended"&&(v(t,...m),p(t,...e.entered)),s(o)))}),d.dispose}
+function f(t,...e){t&&e.length>0&&t.classList.add(...e)}function g(t,...e){t&&e.length>0&&t.classList.remove(...e)}var T=(n=>(n.Ended="ended",n.Cancelled="cancelled",n))(T||{});function c(t,e){let n=(0,_utils_disposables_js__WEBPACK_IMPORTED_MODULE_0__.disposables)();if(!t)return n.dispose;let{transitionDuration:d,transitionDelay:a}=getComputedStyle(t),[s,u]=[d,a].map(i=>{let[o=0]=i.split(",").filter(Boolean).map(r=>r.includes("ms")?parseFloat(r):parseFloat(r)*1e3).sort((r,l)=>l-r);return o});if(s+u!==0){let i=[];i.push(n.addEventListener(t,"transitionrun",o=>{o.target===o.currentTarget&&(i.splice(0).forEach(r=>r()),i.push(n.addEventListener(t,"transitionend",r=>{r.target===r.currentTarget&&(e("ended"),i.splice(0).forEach(l=>l()))}),n.addEventListener(t,"transitioncancel",r=>{r.target===r.currentTarget&&(e("cancelled"),i.splice(0).forEach(l=>l()))})))}))}else e("ended");return n.add(()=>e("cancelled")),n.dispose}function C(t,e,n,d){let a=n?"enter":"leave",s=(0,_utils_disposables_js__WEBPACK_IMPORTED_MODULE_0__.disposables)(),u=d!==void 0?(0,_utils_once_js__WEBPACK_IMPORTED_MODULE_1__.once)(d):()=>{},m=(0,_utils_match_js__WEBPACK_IMPORTED_MODULE_2__.match)(a,{enter:()=>e.enter,leave:()=>e.leave}),i=(0,_utils_match_js__WEBPACK_IMPORTED_MODULE_2__.match)(a,{enter:()=>e.enterTo,leave:()=>e.leaveTo}),o=(0,_utils_match_js__WEBPACK_IMPORTED_MODULE_2__.match)(a,{enter:()=>e.enterFrom,leave:()=>e.leaveFrom});return g(t,...e.enter,...e.enterTo,...e.enterFrom,...e.leave,...e.leaveFrom,...e.leaveTo,...e.entered),f(t,...m,...o),s.nextFrame(()=>{g(t,...o),f(t,...i),c(t,r=>(r==="ended"&&(g(t,...m),f(t,...e.entered)),u(r)))}),s.dispose}
 
 
 /***/ }),

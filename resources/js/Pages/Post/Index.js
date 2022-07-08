@@ -6,7 +6,7 @@ import Authenticated from "@/Layouts/Authenticated";
 import Guest from "@/Layouts/Guest";
 
 const Index = (props) => {
-    const { posts } = usePage().props;
+    const { posts, title } = usePage().props;
     const data = posts;
 
     return (
@@ -17,19 +17,19 @@ const Index = (props) => {
                 <>
                     <div className="flex items-center justify-between mb-0">
                         <h2 className="font-semibold text-xl text-gray-800 leading-tight">
-                            Posts
+                            {title}
                         </h2>
                         <InertiaLink
                             className="px-6 py-2 text-white bg-green-500 rounded-md focus:outline-none"
                             href={route("posts.create")}
                         >
-                            Create Post
+                            Create {title}
                         </InertiaLink>
                     </div>
                 </>
             }
         >
-            <Head title="Posts" />
+            <Head title={title} />
             <div className="container mx-auto">
                 {/* <h1 className="mb-8 text-3xl font-bold text-center">Post</h1> */}
 

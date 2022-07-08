@@ -40,11 +40,12 @@ const Index = (props) => {
                                 <th className="px-6 pt-5 pb-4">#</th>
                                 <th className="px-6 pt-5 pb-4">Name</th>
                                 <th className="px-6 pt-5 pb-4">Description</th>
+                                <th className="px-6 pt-5 pb-4">Published</th>
                                 <th className="px-6 pt-5 pb-4">Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {data.map(({ id, name, description }) => (
+                            {data.map(({ id, name, description, isPub }) => (
                                 <tr key={id} className="">
                                     <td className="border-t">
                                         <InertiaLink
@@ -72,6 +73,11 @@ const Index = (props) => {
                                         </InertiaLink>
                                     </td>
                                     <td className="border-t">
+                                        {isPub == 1
+                                            ? "published"
+                                            : "not published"}
+                                    </td>
+                                    <td className="border-t">
                                         <InertiaLink
                                             tabIndex="1"
                                             className="px-4 py-2 mx-2 text-sm text-white bg-blue-500 rounded"
@@ -95,7 +101,7 @@ const Index = (props) => {
                                         className="px-6 py-4 border-t"
                                         colSpan="4"
                                     >
-                                        No contacts found.
+                                        No {title} found.
                                     </td>
                                 </tr>
                             )}
