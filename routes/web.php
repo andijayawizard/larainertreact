@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\MenuWebsiteController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -33,7 +35,9 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware(['auth', 'verified'])->group(function () {
+    Route::resource('user', UserController::class);
     Route::resource('menuweb', MenuWebsiteController::class);
+    Route::resource('blog', BlogController::class);
     Route::resource('posts', PostController::class);
     Route::resource('categories', CategoryController::class);
     Route::resource('products', ProductController::class);
