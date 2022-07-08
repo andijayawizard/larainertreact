@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\MenuWebsite;
 use App\Http\Requests\StoreMenuWebsiteRequest;
 use App\Http\Requests\UpdateMenuWebsiteRequest;
+use Inertia\Inertia;
 
 class MenuWebsiteController extends Controller
 {
@@ -15,7 +16,10 @@ class MenuWebsiteController extends Controller
      */
     public function index()
     {
-        //
+        $title = 'Menu Website';
+        $menuWebsite = MenuWebsite::latest()->get();
+        return Inertia::render('Menuweb/Index', ['menuweb' => $menuWebsite])
+            ->with('title', $title);
     }
 
     /**
