@@ -4,10 +4,7 @@ import React from "react";
 
 const Show = (props) => {
     const { menuweb, title } = usePage().props;
-    const data = {
-        name: menuweb.name,
-        description: menuweb.description,
-    };
+    const data = menuweb;
     return (
         <Authenticated
             auth={props.auth}

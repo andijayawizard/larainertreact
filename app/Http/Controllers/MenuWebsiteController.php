@@ -53,7 +53,7 @@ class MenuWebsiteController extends Controller
     {
         return Inertia::render('Menuweb/Show', [
             'menuweb' => [
-                'id' => $menuWebsite->id,
+                // 'id' => $menuWebsite->id,
                 'name' => $menuWebsite->name,
                 'description' => $menuWebsite->description,
             ]

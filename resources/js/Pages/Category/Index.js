@@ -3,7 +3,7 @@ import { Head, InertiaLink, usePage } from "@inertiajs/inertia-react";
 import React from "react";
 
 function Index(props) {
-    const { categories } = usePage().props;
+    const { categories, title } = usePage().props;
     const data = categories;
     return (
         <Authenticated
@@ -12,18 +12,18 @@ function Index(props) {
             header={
                 <div className="flex items-center justify-between mb-0">
                     <h2 className="font-semibold text-xl text-gray-800 leading-tight">
-                        Categories
+                        {title}
                     </h2>
                     <InertiaLink
                         className="px-6 py-2 text-white bg-green-500 rounded-md focus:outline-none"
                         href={route("categories.create")}
                     >
-                        Create Category
+                        Create {title}
                     </InertiaLink>
                 </div>
             }
         >
-            <Head title="Categories" />
+            <Head title={title} />
             <div className="container mx-auto">
                 {/* <h1 className="mb-8 text-3xl font-bold text-center">Post</h1> */}
 

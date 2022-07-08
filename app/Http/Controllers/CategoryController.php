@@ -9,6 +9,7 @@ use Inertia\Inertia;
 
 class CategoryController extends Controller
 {
+    protected $title = 'Category';
     /**
      * Display a listing of the resource.
      *
@@ -17,7 +18,8 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::latest()->get();
-        return Inertia::render('Category/Index', ['categories' => $categories]);
+        return Inertia::render('Category/Index', ['categories' => $categories])
+            ->with('title', $this->title);
         // return view('categories.index');
     }
 
@@ -60,7 +62,7 @@ class CategoryController extends Controller
                 'name' => $category->name,
                 'description' => $category->description,
             ]
-        ]);
+        ])->with('title', $this->title);
     }
 
     /**
