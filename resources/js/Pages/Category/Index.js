@@ -5,6 +5,11 @@ import React from "react";
 function Index(props) {
     const { categories, title } = usePage().props;
     const data = categories;
+    function destroy(e) {
+        if (confirm(`Are you sure you want to delete this ${title}?`)) {
+            Inertia.delete(route("categories.destroy", e.currentTarget.id));
+        }
+    }
     return (
         <Authenticated
             auth={props.auth}
@@ -42,7 +47,7 @@ function Index(props) {
                                 <tr key={id} className="">
                                     <td className="border-t">
                                         <InertiaLink
-                                            href={route("posts.edit", id)}
+                                            href={route("categories.edit", id)}
                                             className="flex items-center px-6 py-4 focus:text-indigo-700 focus:outline-none"
                                         >
                                             {id}
@@ -50,7 +55,7 @@ function Index(props) {
                                     </td>
                                     <td className="border-t">
                                         <InertiaLink
-                                            href={route("posts.edit", id)}
+                                            href={route("categories.edit", id)}
                                             className="flex items-center px-6 py-4 focus:text-indigo-700 focus:outline-none"
                                         >
                                             {name}
@@ -80,6 +85,15 @@ function Index(props) {
                                         >
                                             Edit
                                         </InertiaLink>
+                                        <button
+                                            onClick={destroy}
+                                            id={id}
+                                            tabIndex="-1"
+                                            type="button"
+                                            className="mx-1 px-4 py-2 text-sm text-white bg-red-500 rounded"
+                                        >
+                                            Delete
+                                        </button>
                                     </td>
                                 </tr>
                             ))}
