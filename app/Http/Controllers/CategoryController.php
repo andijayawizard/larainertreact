@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Validator;
 use Inertia\Inertia;
 
 class CategoryController extends Controller
@@ -41,10 +42,14 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required|min:4',
-            'description' => 'required|min:4',
-        ]);
+        Validator::make($request->all(), [
+            'name' => ['required|min:4'],
+            'description' => ['required|min:4'],
+        ])->validate();
+        // $request->validate([
+        //     'name' => 'required|min:4',
+        //     'description' => 'required|min:4',
+        // ]);
         Category::create($request->all());
         return Redirect::route('categories.index');
     }
@@ -58,10 +63,11 @@ class CategoryController extends Controller
     public function show(Category $category)
     {
         return Inertia::render('Category/Show', [
-            'category' => [
-                'name' => $category->name,
-                'description' => $category->description,
-            ]
+            'category' => $category,
+            // 'category' => [
+            //     'name' => $category->name,
+            //     'description' => $category->description,
+            // ]
         ])->with('title', $this->title);
     }
 
@@ -74,11 +80,12 @@ class CategoryController extends Controller
     public function edit(Category $category)
     {
         return Inertia::render('Category/Edit', [
-            'category' => [
-                'id' => $category->id,
-                'name' => $category->name,
-                'description' => $category->description,
-            ]
+            'category' => $category,
+            // 'category' => [
+            //     'id' => $category->id,
+            //     'name' => $category->name,
+            //     'description' => $category->description,
+            // ]
         ]);
     }
 
@@ -107,6 +114,7 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        return redirect()->route('categories.index');
     }
 }
